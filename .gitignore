@@ -1,0 +1,6 @@
+node_modules/
+.npm-cache/
+research/
+verification/
+*.tgz
+.runtime/

@@ -1,0 +1,30 @@
+{
+  "name": "pi-double-booksource",
+  "version": "0.1.0",
+  "description": "香色闺阁与阅读书源生成、验证及严格子集批量互转",
+  "type": "module",
+  "license": "MIT",
+  "keywords": ["pi-package", "xiangse", "legado", "booksource", "xbs"],
+  "engines": { "node": "^22.22.2 || >=24.15.0" },
+  "bin": { "pi-double-booksource": "./src/cli.mjs" },
+  "files": ["extensions", "src", "skills", "README.md", "LICENSE"],
+  "scripts": { "check": "node --test verification/*.test.mjs" },
+  "dependencies": {
+    "iconv-lite": "0.7.3",
+    "jsdom": "31.0.1",
+    "jsonpath-plus": "11.3.0",
+    "quickjs-emscripten": "0.32.0"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=1.6.1",
+    "typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": { "optional": true },
+    "typebox": { "optional": true }
+  },
+  "pi": {
+    "extensions": ["./extensions/index.ts"],
+    "skills": ["./skills/pi-double-booksource"]
+  }
+}
