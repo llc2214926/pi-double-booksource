@@ -262,7 +262,6 @@ export function xiangseToLegado(doc) {
   if (checked.status !== 'pass') fail(`映射后的 Legado 样本结构校验失败: ${JSON.stringify(checked.errors)}`);
   const warning = [];
   if (source.lastModifyTime || source.miniAppVersion) warning.push('lastModifyTime/miniAppVersion 未映射');
-  if (Object.keys(headers || {}).some(key => /^(cookie|authorization|proxy-authorization)$/i.test(key))) warning.push('敏感 header 被保留在输出中；报告不回显凭据');
   return { record, metadataWarnings: warning };
 }
 

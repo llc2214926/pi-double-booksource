@@ -8,7 +8,7 @@
   "engines": { "node": "^22.22.2 || >=24.15.0" },
   "bin": { "pi-double-booksource": "./src/cli.mjs" },
   "files": ["extensions", "src", "skills", "README.md", "LICENSE"],
-  "scripts": { "check": "node --test verification/*.test.mjs" },
+  "scripts": { "check": "node --input-type=module -e \"import { existsSync, readdirSync } from 'node:fs'; if (!existsSync('verification') || !readdirSync('verification').some(file => file.endsWith('.test.mjs'))) { console.error('No verification tests found'); process.exit(1); }\" && node --test verification/*.test.mjs" },
   "dependencies": {
     "iconv-lite": "0.7.3",
     "jsdom": "31.0.1",

@@ -54,6 +54,12 @@ function splitRule(rule) {
   return { js: pipe ? raw.slice(pipe.index + pipe[0].length) : undefined, selectors: (pipe ? raw.slice(0, pipe.index) : raw).split(/\s*\|\|\s*/).filter(Boolean) };
 }
 
+function mergeHeaders(...headerMaps) {
+  const headers = new Headers();
+  for (const headerMap of headerMaps) for (const [name, value] of Object.entries(headerMap || {})) headers.set(name, value);
+  return headers;
+}
+
 export async function parsePage(source, action, text, params = {}, signal) {
   const config = { ...action, host: action.host || source.sourceUrl, httpHeaders: { ...source.httpHeaders, ...action.httpHeaders } };
   const context = { config, params, result: text };
@@ -150,7 +156,7 @@ function encodedForm(data, enc) {
 }
 export async function buildRequest(source, action, params, result, signal) {
   const host = action.host || source.sourceUrl;
-  const headers = new Headers({ 'User-Agent': 'Mozilla/5.0 (compatible; pi-double-booksource/0.1)', ...source.httpHeaders, ...action.httpHeaders });
+  const headers = mergeHeaders({ 'User-Agent': 'Mozilla/5.0 (compatible; pi-double-booksource/0.1)' }, source.httpHeaders, action.httpHeaders);
   let value = action.requestInfo || '%@result';
   const config = { ...action, host, httpHeaders: Object.fromEntries(headers) };
   if (value.trim().startsWith('@js:')) value = await runJs(value.trim().slice(4), { config, params, result }, signal);
