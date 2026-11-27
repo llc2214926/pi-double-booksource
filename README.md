@@ -7,12 +7,10 @@
 需要 Node.js 22.22.2+ 或 24.15.0+，Pi 1.6.1+。
 
 ```bash
-cd /path/to/pi-double-booksource
-npm install --omit=peer
-pi install /path/to/pi-double-booksource
+pi install git:github.com/llc2214926/pi-double-booksource
 ```
 
-重新启动 Pi 或执行 `/reload`。想先试用，可在安装依赖后运行 `pi -e /path/to/pi-double-booksource`；这不会添加全局包设置。
+重新启动 Pi 或执行 `/reload`。想先试用，可运行 `pi -e git:github.com/llc2214926/pi-double-booksource`；这不会添加全局包设置。
 
 ## 使用
 
@@ -70,7 +68,7 @@ node src/cli.mjs convert --input source.xbs --output decoded.json --direction de
 ## 移除
 
 ```bash
-pi remove /path/to/pi-double-booksource
+pi remove git:github.com/llc2214926/pi-double-booksource
 ```
 
 ## 许可
