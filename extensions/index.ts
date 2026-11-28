@@ -1,5 +1,4 @@
-import type { ExtensionAPI } from '@earendil-works/pi-coding-agent';
-import { withFileMutationQueue } from '@earendil-works/pi-coding-agent';
+import { VERSION, withFileMutationQueue, type ExtensionAPI } from '@earendil-works/pi-coding-agent';
 import { Type } from 'typebox';
 import { fileURLToPath } from 'node:url';
 import { dispatch, filePath } from '../src/workflow.mjs';
@@ -42,6 +41,11 @@ const toolDefinitions = [
 ];
 
 export default function (pi: ExtensionAPI) {
+  const version = /^([1-9]\d*)\.(0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/.exec(VERSION);
+  if (!version || version[0] !== VERSION || (version[1] === '1' && Number(version[2]) < 7)) {
+    throw new Error('pi-double-booksource requires Pi >=1.7.0 (stable)');
+  }
+
   for (const def of toolDefinitions) {
     pi.registerTool({
       name: def.name, label: def.label, description: def.description,

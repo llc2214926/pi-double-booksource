@@ -4,7 +4,7 @@
 
 ## 安装
 
-需要 Node.js 22.22.2+ 或 24.15.0+，Pi 1.6.1+。
+需要 Node.js 22.22.2+ 或 24.15.0+。Pi 扩展要求 **Pi 1.7.0 或更新的正式版**；独立 CLI 不需要安装 Pi。
 
 ```bash
 pi install git:github.com/llc2214926/pi-double-booksource

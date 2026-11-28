@@ -16,7 +16,7 @@
     "quickjs-emscripten": "0.32.0"
   },
   "peerDependencies": {
-    "@earendil-works/pi-coding-agent": ">=1.6.1",
+    "@earendil-works/pi-coding-agent": ">=1.7.0",
     "typebox": "*"
   },
   "peerDependenciesMeta": {

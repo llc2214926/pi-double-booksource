@@ -1,7 +1,7 @@
 ---
 name: pi-double-booksource
 description: 根据小说网站制作香色闺阁或「阅读」(Legado) 书源、调试及批量互转。Legado 样本仅取 aoaostar/legado 书源区；严格转换规则子集，不宣称 App 导入/运行通过。
-compatibility: Node.js 22.22.2+ 或 24.15.0+；完整包安装依赖后可用，Pi 扩展要求 Pi 1.6.1+。
+compatibility: Node.js 22.22.2+ 或 24.15.0+；完整包安装依赖后可用，Pi 扩展要求 Pi 1.7.0 或更新的正式版。
 ---
 
 # pi-double-booksource
